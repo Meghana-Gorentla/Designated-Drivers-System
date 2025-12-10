@@ -46,13 +46,24 @@ A backend system for a designated driver service that allows users to request dr
 The application follows a modular FastAPI architecture:
 
 ```
-app/
-├── models/        # Database models (User, Ride, Payment, Complaint, Feedback)
-├── routers/       # API routes (auth, ride, payment, feedback, admin)
-├── schemas/       # Pydantic schemas
-├── dependencies/  # Dependency injections (DB sessions, auth)
-├── main.py        # FastAPI app entry point
-└── config.py      # Configuration and environment settings
+designated driver system/
+│
+├── .venv/ # Virtual environment
+├── alembic/ # Alembic migrations
+├── app/
+│ ├── core/ # Core utilities
+│ ├── models/ # Database models
+│ ├── routers/ # FastAPI route handlers
+│ └── schemas/ # Pydantic schemas
+│
+├── dependencies/ # Authentication & dependency files
+├── k8s/ # Kubernetes configuration files
+├── .env
+├── alembic.ini
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+
 ```
 
 * **Docker Compose:** Runs 2 containers – one for the backend API and one for the database
